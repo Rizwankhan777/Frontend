@@ -21,7 +21,7 @@ import RecomendHeading from './recomendHeading';
 
 function productSlider() {
   return (
-   <div className='container' style={{minWidth:"1500px"}}>
+   <div className='container-fluid' >
        
         <div className="row">
             <div className="col-md-12">

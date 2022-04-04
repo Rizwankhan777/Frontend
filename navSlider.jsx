@@ -14,11 +14,11 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 function NavSlider() {
   return (
-    <div className='container' style={{minWidth:"1500px"}}>
+    <div className='container-fluid ' >
         <div className="row">
-            <div className="col-md-8 pr-0">
+            <div className="navs col-md-8 ">
 
-<OwlCarousel className='owl-theme' loop margin={10}  items={1} nav={false}>
+<OwlCarousel className='nav-theme owl-theme' loop margin={5}  items={1} nav={false}>
     <div class='item'>
         <div className="navImage">
             <img src={imagen1} alt="" />
@@ -49,18 +49,10 @@ function NavSlider() {
             <img src={imagen55} alt="" />
         </div>
     </div>
-
- 
-   
 </OwlCarousel>;
 
-
-
-
-
-
             </div>
-            <div className="col-md-4 p-0">
+            <div className="sideImg col-md-4">
                 <div className="sideImage">
                     <div className="img1">
                         <img src={imagen11} alt="" />
