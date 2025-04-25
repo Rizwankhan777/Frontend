@@ -1,0 +1,45 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force non-www (optional – change if you want www)
+RewriteCond %{HTTP_HOST} ^www\.[Brand NAme] [NC]
+RewriteRule ^(.*)$ https://[Brand NAme]/$1 [L,R=301]
+
+# Remove .php extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+//php ki extension remove hoti hey is se
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php\sHTTP/
+RewriteRule ^ %1 [R=301,L]
+
+
+# Custom 404 Page (create 404.html in root)
+ErrorDocument 404 /404.html
+
+# Deny access to .htaccess file
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>
+
+# Enable browser caching (optional speed boost)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes
